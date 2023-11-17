@@ -1,13 +1,169 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* #### Dark Theme
+
+
+#### Light Theme
+- Toggle: hsl(230, 22%, 74%) 
+*/
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease-in-out;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --Lime-Green: hsl(163, 72%, 41%);
+  --Bright-Red: hsl(356, 69%, 56%);
+  --Facebook: hsl(208, 92%, 53%);
+  --Twitter: hsl(203, 89%, 53%);
+  --Instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  --YouTube: hsl(348, 97%, 39%);
+
+  --BG: hsl(0, 0%, 100%);
+  --Top-BG-Pattern: hsl(225, 100%, 98%);
+  --Card-BG: hsl(227, 47%, 96%);
+  --Card-hover: hsl(234, 28%, 87%);
+  --Text-P: hsl(228, 12%, 44%);
+  --Text-H: hsl(230, 17%, 14%);
+  --Toggle: hsl(230, 22%, 74%);
+  --move-ball: translateX(calc(100% + 10px))
+}
+
+/* #### Light Theme */
+[data-theme='light'] {
+  --BG: hsl(0, 0%, 100%);
+  --Card-BG: hsl(227, 47%, 96%);
+  --Card-hover: hsl(234, 28%, 87%);
+  --Text-H: hsl(220, 27%, 2%);
+  --Text-P: hsl(230deg 6.53% 42.92%);
+  --Top-BG-Pattern: hsl(225, 100%, 98%);
+  --Toggle: hsl(230, 22%, 74%);
+  --move-ball: translateX(calc(100% + 10px))
+}
+
+/* #### Dark Theme */
+[data-theme='dark'] {
+  --BG: hsl(230, 17%, 14%);
+  --Card-BG: hsl(228, 28%, 20%);
+  --Card-hover: hsl(228, 22%, 23%);
+  --Text-P: hsl(228, 34%, 66%);
+  --Text-H: hsl(0, 0%, 100%);
+  --Top-BG-Pattern: hsl(232, 19%, 15%);
+  --Toggle: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+  --move-ball: translateX(0)
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: var(--Text-P);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--Text-H)
+}
+
+.positive {
+  color: var(--Lime-Green);
+}
+
+.negative {
+  color: var(--Bright-Red);
+}
+
+.numFollowers {
+  font-size: 4.3rem !important;
+  font-weight: bold !important;
+  color: var(--Text-H);
+
+}
+
+.textFollowers {
+  font-size: 12px !important;
+  font-weight: bold !important;
+  letter-spacing: 0.4rem !important;
+  text-transform: uppercase;
+  color: var(--Text-P);
+  margin-top: -10px !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--Card-BG);
+  padding: 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: var(--Card-hover);
+}
+
+.followersCard {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+}
+
+.arrowImg {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+.parentMode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-mode{
+  color: var(--Text-P);
+}
+
+.bg-Mode {
+  border-radius: 30px;
+  width: 80px;
+  height: 40px;
+  background: var(--Toggle);
+  position: relative;
+}
+
+.btn-Mode {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--Top-BG-Pattern);
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: absolute;
+  transform: var(--move-ball);
+}
+
+@media (max-width: 697.60px) {
+  .parentMode {
+    border-top: 3px solid var(--Card-BG);
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-top: 10px;
+  }
 }
